@@ -1,0 +1,86 @@
+.btn {
+  @apply text-sm leading-loose align-middle px-4 py-1 rounded cursor-pointer;
+  transition: 0.4s ease-in-out;
+  &:focus {
+    @apply outline-none;
+  }
+  &:disabled {
+    @apply cursor-not-allowed outline-none;
+  }
+}
+
+.btn-pill {
+  @apply text-sm leading-loose align-middle px-4 py-1 rounded-full cursor-pointer;
+  transition: 0.4s ease-in-out;
+  &:focus {
+    @apply outline-none;
+  }
+  &:disabled {
+    @apply cursor-not-allowed outline-none;
+  }
+}
+
+.btn-lg {
+  @apply text-base leading-loose align-middle px-6 py-2 rounded-full cursor-pointer;
+}
+
+
+.btn-primary {
+  @apply bg-blue-900 text-white;
+  box-shadow: 0 2px 6px 0 rgba(15, 75, 143, .5);
+  &:hover {
+    background-color: #08305d;
+  }
+}
+
+.btn-info {
+  @apply bg-blue-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(15, 126, 194, 0.5);
+  &:hover {
+    background-color: #116ba2;
+  }
+  &:disabled {
+    background-color: #30576f;
+  }
+}
+
+.btn-light {
+  @apply bg-white;
+  box-shadow: 0 2px 6px 0 rgba(173, 175, 177, .5);
+  &:hover {
+    @apply bg-gray-300;
+  }
+}
+
+.btn-dark {
+  @apply bg-gray-900 text-white;
+  box-shadow: 0 2px 6px 0 rgba(52, 58, 64, .5);
+}
+
+.btn-success {
+  @apply bg-green-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(10, 207, 151, .5);
+  &:hover {
+    @apply bg-green-900;
+  }
+}
+
+.btn-warning {
+  @apply bg-yellow-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(255, 188, 0, .5);
+  &:hover {
+    @apply bg-yellow-900;
+  }
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(250, 92, 124, .5);
+  &:hover {
+    @apply bg-red-900;
+  }
+}
+
+.btn-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}

@@ -1,0 +1,41 @@
+.badge {
+  @apply px-2 py-1 text-xs rounded;
+}
+
+.badge-success {
+  @apply bg-green-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(10, 207, 151, .5);
+  transition: 0.4s ease-in-out;
+}
+
+.badge-warning {
+  @apply bg-yellow-600 text-black;
+  box-shadow: 0 2px 6px 0 rgba(255, 188, 0, .5);
+  transition: 0.4s ease-in-out;
+}
+
+.badge-danger {
+  @apply bg-red-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(250, 92, 124, .5);
+  transition: 0.4s ease-in-out;
+}
+
+.badge-info {
+  @apply bg-blue-600 text-white;
+  box-shadow: 0 2px 6px 0 rgba(15, 126, 194, 0.5);
+}
+
+.badge-primary {
+  @apply bg-blue-900 text-white;
+  box-shadow: 0 2px 6px 0 rgba(15, 75, 143, .5);
+}
+
+.badge-light {
+  @apply bg-gray-600 text-black;
+  box-shadow: 0 2px 6px 0 rgba(173, 175, 177, .5);
+}
+
+.badge-dark {
+  @apply bg-gray-900 text-white;
+  box-shadow: 0 2px 6px 0 rgba(52, 58, 64, .5);
+}

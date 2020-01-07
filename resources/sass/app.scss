@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam');
+
+@import './local';
+
+@import './module';
+
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
+
+body {
+  font-family: 'Be Vietnam', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

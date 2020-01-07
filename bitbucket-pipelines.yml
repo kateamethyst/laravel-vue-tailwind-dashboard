@@ -1,0 +1,32 @@
+pipelines:
+  default:
+    - step:
+        name: backend
+        caches:
+          - composer
+          - vendor-directory
+        image: zaherg/php-xdebug-alpine:latest
+        script:
+          - composer install --no-progress --no-suggest --prefer-dist
+          - cp .env.example .env
+          - sed -i "s/DB_DATABASE=.*/DB_DATABASE=sio/" .env
+          - sed -i "s/DB_USERNAME=.*/DB_USERNAME=root/" .env
+          - sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=secret/" .env
+          - php artisan key:generate
+          - php artisan migrate
+          - php vendor/bin/phpunit --testdox --colors=never
+        services:
+          - mysql
+
+definitions:
+  caches:
+    vendor-directory: vendor
+
+  services:
+    redis:
+      image: redis
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_DATABASE: 'sio'
+        MYSQL_ROOT_PASSWORD: 'secret'

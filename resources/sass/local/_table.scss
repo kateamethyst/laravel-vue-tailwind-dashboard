@@ -1,0 +1,13 @@
+.table {
+  @apply table-auto w-full my-4;
+}
+
+th, td{
+  @apply text-gray-900 text-sm border-gray-600 text-left border-t border-b px-4 py-2;
+}
+
+tr:hover {
+  td {
+    @apply bg-gray-600; 
+  }
+}

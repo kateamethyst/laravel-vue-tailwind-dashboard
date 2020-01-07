@@ -1,0 +1,43 @@
+.modal {
+  @apply fixed w-full h-full top-0 left-0 flex items-center justify-center;
+  transition: opacity .4s ease;
+  
+  &-enter, &-leave-active {
+    opacity: 0;
+  }
+
+  &-enter &-container, &-leave-active &-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  &-overlay {
+    @apply absolute w-full h-full bg-gray-900 opacity-50
+  }
+  
+  &-container {
+    @apply bg-white w-5/12 mx-auto rounded shadow-lg z-50 overflow-y-auto;
+    transition: all .3s ease;
+  }
+  
+  &-close {
+    @apply cursor-pointer z-50 text-sm;
+  }
+  
+  &-content {
+    @apply  py-4 text-left px-6;
+    max-height: 700px;
+  }
+
+  &-header {
+    @apply flex justify-between items-center pb-3;
+  }
+
+  &-title {
+    @apply text-xl font-semibold text-gray-900;
+  }
+
+  &-footer {
+    @apply flex justify-end pt-2;
+  }
+}

@@ -1,0 +1,38 @@
+.mainnav {
+  @apply bg-white;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  > .container {
+    @apply flex items-center justify-between flex-wrap px-0 py-3;
+  }
+
+  &__brand {
+    @apply flex items-center flex-shrink-0 text-white mr-6;
+    a {
+      img {
+        width: 290px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__toggler {
+    @apply block;
+
+    button {
+      @apply flex items-center px-3 py-2 border rounded text-gray-900 border-gray-900 ;
+
+      svg {
+        @apply w-4 h-4 fill-current;
+      }
+    }
+  }
+
+  &__list {
+    @apply  text-lg text-right;
+  }
+
+  &__item {
+    @apply block mt-4 text-gray-900 text-lg font-semibold;
+  }
+}

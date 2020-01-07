@@ -1,0 +1,9 @@
+{
+  "name": "SendItOut International Outsourcing Inc.",
+  "short_name": "SIO",
+  "theme_color": "#0f7ec2",
+  "background_color": "#0f7ec2",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}

@@ -1,0 +1,91 @@
+.content {
+  @apply mb-8;
+  -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.wrapper {
+  @apply w-full px-4;
+}
+
+
+.pagination {
+  @apply flex border-gray-300 rounded;
+  .page-item {
+    &:first-child {
+      > .page-link {
+        @apply border-l border-gray-300;
+      }
+    }
+
+    &.disabled {
+      @apply bg-gray-300 text-gray-900;
+      > .page-link {
+        @apply cursor-not-allowed;
+        &:hover {
+          @apply bg-gray-300 text-gray-900 border-gray-300;
+        }
+      }
+    }
+
+    &.active {
+      @apply bg-blue-900 text-white;
+      > .page-link {
+        @apply text-white  border-blue-900;
+        &:hover {
+          @apply bg-blue-600 text-white border-blue-600;
+        }
+      }
+    }
+  }
+  .page-link {
+    & {
+      @apply block border-t border-b border-r text-gray-900 text-sm px-3 py-2 border-gray-300;
+      transition: 0.4s ease-in-out;
+    }
+    &:hover {
+      @apply bg-blue-600 text-white border-blue-600 cursor-pointer;
+    }
+  }
+}
+
+.vuetable-pagination-info {
+  @apply text-sm text-gray-900;
+}
+
+.icon-wrapper {
+  width: 2.5em;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+

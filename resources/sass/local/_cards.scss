@@ -1,0 +1,16 @@
+.card {
+  @apply rounded overflow-hidden shadow-lg bg-white;
+
+  &__body {
+    @apply px-6 py-4;
+  }
+
+  &__title {
+    @apply text-sm font-bold mb-2 uppercase text-blue-600;
+  }
+
+}
+
+.card-bg-blue-600 {
+  @apply bg-blue-600;
+}

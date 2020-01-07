@@ -1,0 +1,85 @@
+---
+version: '3.7'
+
+services:
+
+  nginx:
+    image: "nginx:1-alpine"
+    container_name: is_nginx
+    environment:
+      - "DOMAIN_NAME=app-tier:siocareer.local"
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - php:php
+    volumes:
+      - ./.docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html
+    networks:
+      - app-tier
+
+  vue-app:
+    image: "nginx:1-alpine"
+    container_name: is_vue_app
+    environment:
+      - "DOMAIN_NAME=app-tier:app.siocareer.local"
+    ports:
+      - "81:80"
+      - "444:443"
+    volumes:
+      - ./.docker/nginx/app.conf:/etc/nginx/conf.d/default.conf
+      - ./public/build:/var/www/html
+    networks:
+      - app-tier
+
+  php:
+    &php
+    build:
+      context: ./.docker/php
+      args:
+        TIMEZONE: UTC
+    image: "php:7.2-alpine"
+    container_name: is_php
+    volumes:
+      - ./:/var/www/html
+      - .docker/php/.bash_history:/home/php/.bash_history
+    env_file:
+      - .docker/php/app.env
+    ports:
+      - "9000"
+    links:
+      - db:db
+    extra_hosts:
+      - "siocareer.local:127.0.0.1"
+    networks:
+      - app-tier
+
+  queue:
+    <<: *php
+    container_name: is_queue
+    entrypoint: php artisan horizon
+
+  db:
+    build: ./.docker/mysql
+    image: "mysql:5.7.22"
+    container_name: is_mysql
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./:/app
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_DATABASE=sio"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+    ports:
+      - "33306:3306"
+    networks:
+      - app-tier
+    
+networks:
+  app-tier:
+    driver: bridge
+
+volumes:
+  db-data:

@@ -1,0 +1,25 @@
+.list-group {
+  @apply list-none;
+
+  .list-item {
+    @apply border-t border-gray-700 cursor-default p-4;
+    &:first-child {
+      @apply border-none;
+    }
+    &:hover {
+      @apply bg-gray-100;
+    }
+  }
+
+  .list-title {
+    @apply text-black font-semibold uppercase text-sm;
+  }
+
+  .list-sub-content {
+    @apply text-gray-900 text-xs;
+  }
+
+  .list-content {
+    @apply text-gray-900 text-sm mt-2;
+  }
+}

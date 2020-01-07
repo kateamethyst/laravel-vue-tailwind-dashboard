@@ -1,0 +1,46 @@
+<template>
+    <ul class="pagination pb-4 pr-4 xl:w-auto lg:w-auto md:w-auto w-full">
+      <li :class="['page-item', {'disabled': isOnFirstPage}]">
+        <a class="page-link" @click.prevent="loadPage(1)">
+          <span>&laquo;</span>
+        </a>
+      </li>
+
+      <li :class="['page-item', {'disabled': isOnFirstPage}]">
+        <a class="page-link" @click.prevent="loadPage('prev')">
+          <span>Previous</span>
+        </a>
+      </li>
+      
+      <template v-if="notEnoughPages">
+        <li v-for="n in totalPage" :key="n" :class="['page-item', {'active': isCurrentPage(n)}]">
+          <a class="page-link" @click.prevent="loadPage(n)" v-html="n"></a>
+        </li>
+      </template>
+      <template v-else>
+        <li v-for="n in windowSize" :key="n" :class="['page-item', {'active': isCurrentPage(windowStart+n-1)}]">
+          <a class="page-link" @click.prevent="loadPage(windowStart+n-1)" v-html="windowStart+n-1"></a>
+        </li>
+      </template>
+
+      <li :class="['page-item', {'disabled': isOnLastPage}]">
+        <a class="page-link" href="" @click.prevent="loadPage('next')">
+          <span>Next</span>
+        </a>
+      </li>
+
+      <li :class="['page-item', {'disabled': isOnLastPage}]">
+        <a class="page-link" href="" @click.prevent="loadPage(lastPage)" >
+          <span>&raquo;</span>
+        </a>
+      </li>
+    </ul>  
+</template>
+
+<script>
+import VuetablePaginationMixin from "vuetable-2/src/components/VuetablePaginationMixin";
+
+export default {
+  mixins: [VuetablePaginationMixin]
+};
+</script>

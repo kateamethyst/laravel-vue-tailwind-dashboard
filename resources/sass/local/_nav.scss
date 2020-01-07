@@ -1,0 +1,23 @@
+.navbar {
+  @apply bg-white h-16 min-h-full;
+  max-height: 70px;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+  -webkit-transition: all .2s;
+    transition: all .2s;
+  &__toggle {
+    @apply block absolute block;
+    top: 30px;
+    left: 24px;
+    transform: translateY(-50%);
+    .line {
+      background-color: #313a46;
+      height: 3px;
+      width: 24px;
+      &:not(:first-child) {
+        margin-top: 4px;
+      }
+    }
+  }
+}

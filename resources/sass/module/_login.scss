@@ -1,0 +1,13 @@
+.login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  &__header {
+    @apply text-center;
+    img {
+      margin: 0 auto;
+    }
+  }
+}
